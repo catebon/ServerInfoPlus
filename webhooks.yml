@@ -1,0 +1,207 @@
+# ========================================
+# SERVERINFOPLUS - DISCORD WEBHOOKS
+# ========================================
+
+# Habilitar/deshabilitar sistema completo
+enabled: true
+
+# Configuración global
+global:
+  # Nombre del servidor (aparece en footer)
+  server-name: "Mi Servidor de Minecraft"
+  
+  # Logo del servidor (URL)
+  server-icon: "https://ejemplo.com/logo.png"
+  
+  # Timezone para timestamps
+  timezone: "America/Mexico_City"
+  
+  # Mencionar roles en alertas críticas
+  mention-on-critical: true
+  mention-role-id: "123456789012345678"  # ID del rol a mencionar
+  
+  # Rate limiting global
+  global-rate-limit:
+    max-per-hour: 100
+    max-per-minute: 10
+  
+  # Sistema anti-spam
+  anti-spam:
+    enabled: true
+    pause-threshold: 10        # Pausar si >10 alertas/minuto
+    pause-duration: 300        # Pausar por 5 minutos
+    auto-resume: true
+
+# ========================================
+# WEBHOOKS CONFIGURADOS
+# ========================================
+
+webhooks:
+  
+  # WEBHOOK PRINCIPAL (OBLIGATORIO)
+  main:
+    enabled: true
+    url: "https://discord.com/api/webhooks/XXXXXXX/YYYYYYYYY"
+    name: "ServerInfo - Principal"
+    avatar: "https://ejemplo.com/bot-avatar.png"
+    
+    # Tipos de eventos que recibe este webhook
+    events:
+      - server-start
+      - server-stop
+      - performance-warning
+      - player-first-join
+      - daily-report
+    
+    # Cooldowns específicos (segundos)
+    cooldowns:
+      performance-warning: 300   # 5 minutos
+      server-start: 0
+      server-stop: 0
+      player-first-join: 60      # 1 minuto
+    
+    # Rate limiting
+    rate-limit:
+      max-per-hour: 30
+      max-per-minute: 3
+    
+    # Agrupar alertas repetidas
+    group-alerts: true
+    group-duration: 600  # Agrupar durante 10 minutos
+  
+  # WEBHOOK DE ALERTAS CRÍTICAS
+  critical:
+    enabled: true
+    url: "https://discord.com/api/webhooks/XXXXXXX/ZZZZZZZZZ"
+    name: "ServerInfo - Crítico"
+    avatar: "https://ejemplo.com/alert-avatar.png"
+    
+    events:
+      - tps-critical
+      - memory-critical
+      - cpu-critical
+      - server-crash
+      - entity-overload-emergency
+    
+    cooldowns:
+      tps-critical: 180          # 3 minutos
+      memory-critical: 300       # 5 minutos
+      cpu-critical: 300
+      server-crash: 0
+      entity-overload-emergency: 600
+    
+    rate-limit:
+      max-per-hour: 20
+      max-per-minute: 2
+    
+    # Mencionar siempre en este webhook
+    always-mention: true
+    mention-role-id: "123456789012345678"
+  
+  # WEBHOOK DE JUGADORES
+  players:
+    enabled: true
+    url: "https://discord.com/api/webhooks/XXXXXXX/AAAAAAAA"
+    name: "ServerInfo - Jugadores"
+    
+    events:
+      - player-join
+      - player-leave
+      - player-first-join
+      - player-death
+      - player-banned
+      - player-kicked
+    
+    cooldowns:
+      player-join: 0
+      player-leave: 0
+      player-first-join: 0
+      player-death: 30
+      player-banned: 0
+      player-kicked: 0
+    
+    rate-limit:
+      max-per-hour: 100   # Más alto para eventos frecuentes
+      max-per-minute: 10
+  
+  # WEBHOOK DE RENDIMIENTO
+  performance:
+    enabled: true
+    url: "https://discord.com/api/webhooks/XXXXXXX/BBBBBBBB"
+    name: "ServerInfo - Rendimiento"
+    
+    events:
+      - tps-warning
+      - tps-critical
+      - memory-warning
+      - memory-critical
+      - cpu-warning
+      - cpu-critical
+      - entity-overload
+      - chunk-overload
+    
+    cooldowns:
+      tps-warning: 600
+      tps-critical: 300
+      memory-warning: 600
+      memory-critical: 300
+      cpu-warning: 600
+      cpu-critical: 300
+      entity-overload: 900
+      chunk-overload: 900
+    
+    group-alerts: true
+  
+  # WEBHOOK DE REDSTONE
+  redstone:
+    enabled: false  # Deshabilitado por defecto
+    url: "https://discord.com/api/webhooks/XXXXXXX/CCCCCCCC"
+    name: "ServerInfo - Redstone"
+    
+    events:
+      - redstone-lag
+      - hopper-overload
+      - farm-detected
+    
+    cooldowns:
+      redstone-lag: 900       # 15 minutos
+      hopper-overload: 1800   # 30 minutos
+      farm-detected: 3600     # 1 hora
+  
+  # WEBHOOK DE REPORTES
+  reports:
+    enabled: true
+    url: "https://discord.com/api/webhooks/XXXXXXX/DDDDDDDD"
+    name: "ServerInfo - Reportes"
+    
+    events:
+      - daily-report
+      - weekly-report
+      - custom-report
+    
+    cooldowns:
+      daily-report: 0
+      weekly-report: 0
+      custom-report: 300
+  
+  # WEBHOOK DE SEGURIDAD
+  security:
+    enabled: true
+    url: "https://discord.com/api/webhooks/XXXXXXX/EEEEEEEE"
+    name: "ServerInfo - Seguridad"
+    
+    events:
+      - suspicious-connection
+      - admin-command
+      - op-granted
+      - op-removed
+      - whitelist-changed
+    
+    cooldowns:
+      suspicious-connection: 300
+      admin-command: 60
+      op-granted: 0
+      op-removed: 0
+      whitelist-changed: 0
+    
+    always-mention: true

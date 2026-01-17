@@ -1,0 +1,142 @@
+# Configuracion del GUI de Detalles de Mundo - ServerInfoPlus v2.1
+# Informacion detallada de un mundo especifico
+
+title: "&#55FF55&l%world_name% &#555555- &#FFFFFFDetalles"
+size: 45
+update-interval: 20
+sound-open: BLOCK_CHEST_OPEN
+sound-click: UI_BUTTON_CLICK
+
+items:
+  # Header con icono del mundo
+  header:
+    slot: 4
+    material: GRASS_BLOCK
+    glow: true
+    name: "&#55FF55&l%world_display_name%"
+    lore:
+      - ""
+      - "&#AAAAAAInformacion detallada"
+      - "&#AAAAAAdel mundo seleccionado"
+
+  # Jugadores en el mundo
+  players:
+    slot: 19
+    material: PLAYER_HEAD
+    name: "&#55FF55&lJugadores"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFConectados: &#55FF55%world_players_count%"
+      - ""
+      - "&#AAAAAA%world_players_list%"
+
+  # Entidades
+  entities:
+    slot: 20
+    material: ZOMBIE_HEAD
+    name: "&#FF6B6B&lEntidades"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFTotal: &#FFAA00%world_entities%"
+      - ""
+      - "&#AAAAAAEntidades cargadas en"
+      - "&#AAAAAAeste mundo"
+
+  # Chunks cargados
+  chunks:
+    slot: 21
+    material: FILLED_MAP
+    name: "&#55FFFF&lChunks"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFCargados: &#55FFFF%world_chunks%"
+      - ""
+      - "&#AAAAAAChunks activos en memoria"
+
+  # Dificultad
+  difficulty:
+    slot: 22
+    material: DIAMOND_SWORD
+    name: "&#FFAA00&lDificultad"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFNivel: &#FFAA00%world_difficulty%"
+
+  # Tipo de mundo
+  environment:
+    slot: 23
+    material: BEACON
+    name: "&#00D4FF&lAmbiente"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFTipo: &#55FFFF%world_environment%"
+      - ""
+      - "&#AAAAAA• Normal = Overworld"
+      - "&#AAAAAA• Nether = Inframundo"
+      - "&#AAAAAA• The End = El Fin"
+
+  # Spawn del mundo
+  spawn:
+    slot: 24
+    material: COMPASS
+    name: "&#55FF55&lSpawn"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFX: &#55FFFF%world_spawn_x%"
+      - "&#55FFFF► &#FFFFFFY: &#55FFFF%world_spawn_y%"
+      - "&#55FFFF► &#FFFFFFZ: &#55FFFF%world_spawn_z%"
+
+  # Volver a mundos
+  back:
+    slot: 36
+    material: ARROW
+    name: "&#FFAA00&lVolver"
+    lore:
+      - ""
+      - "&#AAAAAAVolver a lista de mundos"
+    actions:
+      left-click:
+        type: open-gui
+        gui: worlds
+
+  # Refrescar
+  refresh:
+    slot: 40
+    material: LIME_DYE
+    name: "&#55FF55&lRefrescar"
+    actions:
+      left-click:
+        type: refresh
+
+  # Cerrar
+  close:
+    slot: 44
+    material: BARRIER
+    name: "&#FF5555&lCerrar"
+    actions:
+      left-click:
+        type: close
+
+  # Decoracion superior
+  decoration_top:
+    slots: [0, 1, 2, 3, 5, 6, 7, 8]
+    material: LIME_STAINED_GLASS_PANE
+    name: " "
+
+  # Decoracion laterales
+  decoration_sides:
+    slots: [9, 17, 18, 26, 27, 35]
+    material: GREEN_STAINED_GLASS_PANE
+    name: " "
+
+  # Decoracion inferior
+  decoration_bottom:
+    slots: [37, 38, 39, 41, 42, 43]
+    material: CYAN_STAINED_GLASS_PANE
+    name: " "
+
+  # Separadores
+  separator:
+    slots: [10, 11, 12, 13, 14, 15, 16, 25, 28, 29, 30, 31, 32, 33, 34]
+    material: GRAY_STAINED_GLASS_PANE
+    name: " "

@@ -1,0 +1,164 @@
+# Configuracion Principal de ServerInfoPlus v2.1.0
+# Plugin Premium con colores hexadecimales y diseño moderno
+
+# Intervalos de actualizacion (en ticks, 20 ticks = 1 segundo)
+update-intervals:
+  tps-memory-cpu: 20    # Ticks (1 segundo)
+  entities-chunks: 100  # Ticks (5 segundos)
+  world-players: 100    # Ticks (5 segundos)
+  plugin-performance: 600  # Ticks (30 segundos)
+  redstone-monitor: 100    # Ticks (5 segundos)
+
+# Sistema de colores con soporte hexadecimal
+# Formatos soportados: &a (tradicional), &#RRGGBB (hex), <gradient:#HEX:#HEX>texto</gradient>
+colors:
+  hex-support: true
+  
+  tps:
+    perfect: "&#55FF55"    # 20.0
+    good: "&#00AA00"       # 18.0 - 19.9
+    medium: "&#FFAA00"     # 15.0 - 17.9
+    bad: "&#FF5555"        # 10.0 - 14.9
+    critical: "&#AA0000"   # 0.0 - 9.9
+    threshold-high: 19.0
+    threshold-medium: 15.0
+  
+  cpu:
+    low: "&#55FF55"        # 0% - 50%
+    medium: "&#FFAA00"     # 51% - 75%
+    high: "&#FF5555"       # 76% - 100%
+    threshold-low: 50.0
+    threshold-medium: 75.0
+
+  ping:
+    low: "&#55FF55"        # 0 - 80ms
+    medium: "&#FFAA00"     # 81 - 150ms
+    high: "&#FF5555"       # 151ms+
+    threshold-low: 80
+    threshold-medium: 150
+
+  memory:
+    low: "&#55FF55"        # 0% - 60%
+    medium: "&#FFAA00"     # 61% - 80%
+    high: "&#FF5555"       # 81% - 100%
+    threshold-low: 60.0
+    threshold-medium: 80.0
+
+# Informacion personal del jugador/si
+worlds-display:
+  enabled: true
+  separator: "&#AAAAAA, &#FFFFFF"
+  empty-text: "&#555555Ninguno"
+  limit: 50
+  order:
+    - world
+    - world_nether
+    - world_the_end
+  names:
+    world: "&#55FF55Survival"
+    world_nether: "&#FF5555Nether"
+    world_the_end: "&#AA00AAEnd"
+
+# Barra de memoria visual
+memory-bar:
+  length: 20
+  char: "▌"
+  colors:
+    low: "&#55FF55"
+    medium: "&#FFAA00"
+    high: "&#FF5555"
+    empty: "&#333333"
+
+# Monitor de Redstone
+redstone-monitor:
+  enabled: true
+  lag-threshold: 20
+  track-hoppers: true
+  chunk-history-size: 10
+  list-format:
+    prefix: "&#FF5555⚡ "
+
+# Rendimiento de plugins
+plugin-performance:
+  enabled: true
+  top-limit: 5
+  async-sampling: true
+
+# Sistema de alertas automaticas
+alerts:
+  enabled: true
+  check-interval: 100
+  cooldown-seconds: 60
+  log-to-console: true
+  
+  tps:
+    enabled: true
+    below: 15.0
+    message: "&#333333[&#FF5555⚡&#333333] &#FF5555⚠ TPS BAJO &#555555» &#FFFFFFActual: &#FFAA00%serverinfo_tps% &#555555| &#AAAAAARevisa chunks cargados"
+  
+  cpu:
+    enabled: true
+    above: 85.0
+    message: "&#333333[&#FF5555⚡&#333333] &#FF5555⚠ CPU ALTA &#555555» &#FFFFFFActual: &#FFAA00%serverinfo_cpu%% &#555555| &#AAAAAARevisa plugins activos"
+  
+  memory:
+    enabled: true
+    above: 90.0
+    message: "&#333333[&#FF5555⚡&#333333] &#FF5555⚠ MEMORIA CRITICA &#555555» &#FFFFFFActual: &#FFAA00%serverinfo_memory_percent%% &#555555| &#AAAAAAConsidera reiniciar"
+  
+  redstone:
+    enabled: true
+    hotspots-above: 3
+    message: "&#333333[&#FF5555⚡&#333333] &#FF5555⚠ REDSTONE LAG &#555555» &#FFFFFFHotspots: &#FFAA00%serverinfo_redstone_lag_hotspots% &#555555| &#AAAAAAUsa &#FFFFFF/si redstone tp"
+
+# Mensajes del plugin con colores hex
+messages:
+  reload: "&#55FF55✔ &#FFFFFFConfiguracion recargada correctamente."
+  no-permission: "&#FF5555✖ &#FFFFFFNo tienes permiso para usar este comando."
+  unknown-command: "&#FF5555✖ &#FFFFFFComando desconocido. Usa &#FFAA00/si help"
+  test-usage: "&#FF5555✖ &#FFFFFFUso: &#FFAA00/si test <placeholder>"
+  test-result: "&#55FF55✔ &#FFAA00%placeholder% &#AAAAAA= &#FFFFFF%result%"
+  calculating: "&#AAAAAA⏳ Calculando..."
+
+# Sistema de GUIs interactivos
+gui:
+  messages:
+    no-permission: "&#FF5555✖ &#FFFFFFNo tienes permiso para abrir este menu!"
+    gui-not-found: "&#FF5555✖ &#FFFFFFError: GUI no encontrado."
+    player-not-found: "&#FF5555✖ &#FFFFFFJugador no encontrado!"
+    reload-success: "&#55FF55✔ &#FFFFFFGUIs recargados"
+    opening-gui: "&#AAAAAA⏳ Abriendo menu..."
+  common:
+    click-to-open: "&#55FF55Click para abrir"
+    click-to-close: "&#FF5555Click para cerrar"
+    back-button: "&#FFAA00&lVolver"
+    close-button: "&#FF5555&lCerrar"
+    refresh-button: "&#55FF55&lRefrescar"
+
+# Sistema de historial con base de datos
+history:
+  enabled: true
+  
+  database:
+    type: sqlite
+    
+    mysql:
+      host: localhost
+      port: 3306
+      database: serverinfo
+      username: root
+      password: ""
+      pool-size: 3
+  
+  sampling:
+    interval-seconds: 30
+    snapshot-minutes: 5
+    flush-on-shutdown: true
+  
+  retention:
+    snapshots-days: 30
+    alerts-days: 7
+
+# Debug (solo para desarrollo)
+debug: false
+log-placeholder-usage: false

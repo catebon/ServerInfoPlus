@@ -1,0 +1,270 @@
+# ========================================
+# CONFIGURACIÓN DE ALERTAS
+# ========================================
+
+# ALERTAS DE RENDIMIENTO
+performance:
+  
+  # TPS (Ticks Per Second)
+  tps:
+    enabled: true
+    
+    # Umbrales de alerta
+    warning-threshold: 18.0    # Advertencia si TPS < 18
+    critical-threshold: 15.0   # Crítico si TPS < 15
+    emergency-threshold: 10.0  # Emergencia si TPS < 10
+    
+    # Duración mínima para alertar (segundos)
+    min-duration: 30  # Solo alertar si el lag dura >30s
+    
+    # Incluir información adicional
+    include-entity-count: true
+    include-chunk-count: true
+    include-player-count: true
+    include-possible-causes: true
+    
+    # Detectar causas automáticamente
+    auto-detect-causes: true
+  
+  # MEMORIA RAM
+  memory:
+    enabled: true
+    
+    warning-threshold: 70      # Advertencia si >70%
+    critical-threshold: 85     # Crítico si >85%
+    emergency-threshold: 95    # Emergencia si >95%
+    
+    # Tendencia (detectar si está subiendo rápido)
+    detect-trend: true
+    trend-window: 60           # Analizar últimos 60 segundos
+    
+    # Recomendaciones automáticas
+    suggest-restart: true
+    suggest-restart-threshold: 90
+  
+  # CPU
+  cpu:
+    enabled: true
+    
+    warning-threshold: 60
+    critical-threshold: 80
+    emergency-threshold: 90
+    
+    min-duration: 20
+    detect-trend: true
+  
+  # ENTIDADES
+  entities:
+    enabled: true
+    
+    # Total de entidades
+    total-threshold: 500
+    
+    # Entidades por mundo
+    per-world-threshold: 300
+    
+    # Entidades en área concentrada
+    concentrated-threshold: 100  # >100 entidades en radio de 50 bloques
+    concentrated-radius: 50
+    
+    # Tipos de entidades a monitorear
+    monitor-types:
+      - DROPPED_ITEM
+      - ARMOR_STAND
+      - MINECART
+      - ZOMBIE
+      - SKELETON
+    
+    # Sugerir limpieza
+    suggest-clear: true
+  
+  # CHUNKS
+  chunks:
+    enabled: true
+    
+    total-threshold: 2000
+    per-world-threshold: 1000
+    per-player-threshold: 20
+
+# ALERTAS DE REDSTONE
+redstone:
+  enabled: false  # Deshabilitado por defecto (puede causar muchas alertas)
+  
+  # Detectar circuitos pesados
+  detect-heavy-circuits: true
+  
+  # TPS drop causado por redstone
+  tps-drop-threshold: 2.0  # Si TPS cae >2.0 por redstone
+  
+  # Bloques a monitorear
+  monitored-blocks:
+    - HOPPER
+    - PISTON
+    - STICKY_PISTON
+    - OBSERVER
+    - REPEATER
+    - COMPARATOR
+    - REDSTONE_WIRE
+  
+  # Hoppers
+  hopper-warning-threshold: 50   # >50 hoppers en radio de 10
+  hopper-radius: 10
+  
+  # Pistons
+  piston-warning-threshold: 20
+  
+  # Observers
+  observer-warning-threshold: 30
+  
+  # Incluir ubicación exacta
+  include-location: true
+  include-player-nearby: true
+
+# EVENTOS DE JUGADORES
+players:
+  
+  # Join/Leave
+  join-leave:
+    enabled: true
+    notify-join: false        # No notificar cada join (puede ser spam)
+    notify-leave: false       # No notificar cada leave
+    notify-first-join: true   # Notificar nuevos jugadores
+    
+    # Incluir información
+    include-ip: false         # No incluir IP por privacidad
+    include-location: true
+    include-gamemode: true
+  
+  # Muertes
+  deaths:
+    enabled: false            # Deshabilitado por defecto
+    
+    # Tipos de muerte a notificar
+    notify-pvp: true          # Muerte por PvP
+    notify-pve: false         # Muerte por mobs
+    notify-environment: false # Muerte por caídas, lava, etc.
+    
+    include-location: true
+    include-items-lost: false
+  
+  # Bans/Kicks
+  moderation:
+    enabled: true
+    notify-ban: true
+    notify-kick: true
+    notify-tempban: true
+    
+    include-reason: true
+    include-moderator: true
+    include-duration: true
+
+# EVENTOS DEL SERVIDOR
+server:
+  
+  # Inicio/Parada
+  lifecycle:
+    enabled: true
+    notify-start: true
+    notify-stop: true
+    notify-crash: true
+    
+    # Incluir información
+    include-startup-time: true
+    include-plugin-count: true
+    include-loaded-worlds: true
+  
+  # Reinicio programado
+  restart:
+    enabled: true
+    
+    # Avisos antes del reinicio
+    warnings:
+      - 1800  # 30 minutos
+      - 900   # 15 minutos
+      - 300   # 5 minutos
+      - 60    # 1 minuto
+      - 30    # 30 segundos
+      - 10    # 10 segundos
+  
+  # Plugins
+  plugins:
+    enabled: false
+    notify-load: false
+    notify-unload: false
+    notify-reload: true
+
+# EVENTOS DE SEGURIDAD
+security:
+  enabled: true
+  
+  # Conexiones sospechosas
+  suspicious-connections:
+    enabled: true
+    
+    # Detectar IPs baneadas
+    detect-banned-ips: true
+    
+    # Múltiples intentos fallidos
+    detect-failed-attempts: true
+    failed-attempts-threshold: 3
+    failed-attempts-window: 300  # En 5 minutos
+  
+  # Comandos administrativos
+  admin-commands:
+    enabled: true
+    
+    # Comandos a monitorear
+    monitored-commands:
+      - "/op"
+      - "/deop"
+      - "/whitelist"
+      - "/ban"
+      - "/pardon"
+      - "/stop"
+      - "/restart"
+      - "/reload"
+      - "/give"
+      - "/gamemode"
+    
+    include-executor: true
+    include-arguments: true
+
+# REPORTES PROGRAMADOS
+reports:
+  
+  # Reporte diario
+  daily:
+    enabled: true
+    time: "08:00"  # 8:00 AM
+    
+    include:
+      - total-players
+      - unique-players
+      - peak-players
+      - average-tps
+      - uptime
+      - crashes
+      - top-players
+  
+  # Reporte semanal
+  weekly:
+    enabled: true
+    day: "MONDAY"  # Lunes
+    time: "09:00"
+    
+    include:
+      - weekly-unique-players
+      - total-playtime
+      - server-uptime
+      - performance-stats
+      - top-players
+      - growth-stats
+  
+  # Reportes personalizados
+  custom:
+    enabled: false
+    interval-hours: 6  # Cada 6 horas
+    
+    include:
+      - current-stats
+      - performance

@@ -1,0 +1,66 @@
+name: ServerInfoPlus
+version: 2.0.2
+main: com.serverinfoplus.serverinfo.ServerInfoPlugin
+api-version: 1.16
+author: Arielwn1
+description: Plugin de estadísticas del servidor con integración PlaceholderAPI
+website: https://discord.gg/3eEpJXqUak
+
+depend:
+  - PlaceholderAPI
+
+commands:
+  serverinfo:
+    description: Muestra estadísticas del servidor
+    usage: /serverinfo [reload|help|test <placeholder>]
+    aliases: [si, stats]
+
+permissions:
+  serverinfo.use:
+    description: Permite ver estadisticas basicas
+    default: true
+  serverinfo.admin:
+    description: Acceso a comandos de administracion
+    default: op
+  serverinfo.reload:
+    description: Permite recargar el plugin
+    default: op
+  serverinfo.redstone:
+    description: Ver informacion de lag por redstone
+    default: op
+  serverinfo.pluginperf:
+    description: Ver rendimiento de plugins
+    default: op
+  serverinfo.gui:
+    description: Permiso base para usar GUIs
+    default: true
+  serverinfo.gui.main:
+    description: Acceso al GUI principal
+    default: true
+  serverinfo.gui.stats:
+    description: Acceso al GUI de estadisticas
+    default: true
+  serverinfo.gui.worlds:
+    description: Acceso al GUI de mundos
+    default: true
+  serverinfo.gui.myinfo:
+    description: Acceso al GUI de mi informacion
+    default: true
+  serverinfo.gui.performance:
+    description: Acceso al GUI de rendimiento
+    default: op
+  serverinfo.gui.worlddetails:
+    description: Acceso al GUI de detalles de mundo
+    default: true
+  serverinfo.gui.admin:
+    description: Permisos administrativos de GUI
+    default: op
+  serverinfo.gui.reload:
+    description: Recargar configuraciones de GUI
+    default: op
+  serverinfo.gui.teleport:
+    description: Teletransportarse desde GUI de mundo
+    default: op
+  serverinfo.discord:
+    description: Permite usar los comandos de integracion con Discord.
+    default: op

@@ -1,0 +1,146 @@
+# Configuracion del GUI Principal - ServerInfoPlus v2.1
+# Diseño moderno con colores hexadecimales y gradientes
+
+title: "&#FF6B6B&lServer&#4ECDC4Info &8- &#FFFFFFMenu"
+size: 27
+update-interval: 20
+sound-open: BLOCK_CHEST_OPEN
+sound-click: UI_BUTTON_CLICK
+
+items:
+  # Item central con info del servidor
+  info:
+    slot: 4
+    material: NETHER_STAR
+    glow: true
+    name: "&#FFD700&lServerInfoPlus &#AAAAAA- &#55FFFFv2.1"
+    lore:
+      - ""
+      - "&#AAAAAA━━━━━━━━━━━━━━━━━━━━━"
+      - "&#55FFFF✦ &#FFFFFFRendimiento del Servidor"
+      - ""
+      - "  &#AAAAAA► &#FFFFFFTPS: %serverinfo_tps_colored%"
+      - "  &#AAAAAA► &#FFFFFFJugadores: &#55FF55%serverinfo_players_online%&#AAAAAA/&#555555%serverinfo_players_max%"
+      - "  &#AAAAAA► &#FFFFFFMemoria: &#FFAA00%serverinfo_memory_percent%&#AAAAAA%"
+      - "  &#AAAAAA► &#FFFFFFCPU: %serverinfo_cpu_colored%&#AAAAAA%"
+      - ""
+      - "&#555555Actualizado automaticamente"
+
+  # Estadisticas del servidor
+  stats:
+    slot: 11
+    material: PAPER
+    name: "&#FFAA00&lEstadisticas"
+    lore:
+      - ""
+      - "&#AAAAAAVer metricas detalladas del"
+      - "&#AAAAAArendimiento del servidor"
+      - ""
+      - "&#55FFFF► &#FFFFFFTPS, RAM, CPU"
+      - "&#55FFFF► &#FFFFFFEntidades y Chunks"
+      - "&#55FFFF► &#FFFFFFUptime del servidor"
+      - ""
+      - "&#55FF55Click para abrir"
+    actions:
+      left-click:
+        type: open-gui
+        gui: stats
+
+  # Mundos y jugadores
+  worlds:
+    slot: 13
+    material: COMPASS
+    name: "&#00D4FF&lMundos"
+    lore:
+      - ""
+      - "&#AAAAAAVer jugadores conectados"
+      - "&#AAAAAAen cada mundo"
+      - ""
+      - "&#55FFFF► &#FFFFFFMundos activos: &#55FF55%serverinfo_worlds%"
+      - ""
+      - "&#55FF55Click para abrir"
+    actions:
+      left-click:
+        type: open-gui
+        gui: worlds
+
+  # Info del jugador
+  myinfo:
+    slot: 15
+    material: PLAYER_HEAD
+    skull-owner: "%player_name%"
+    name: "&#FF6B6B&lMi Informacion"
+    lore:
+      - ""
+      - "&#AAAAAAVer tu informacion personal"
+      - "&#AAAAAAy estadisticas de conexion"
+      - ""
+      - "&#55FFFF► &#FFFFFFPing: &#55FF55%serverinfo_ping%&#AAAAAAms"
+      - "&#55FFFF► &#FFFFFFMundo: &#55FFFF%serverinfo_world_name%"
+      - ""
+      - "&#55FF55Click para abrir"
+    actions:
+      left-click:
+        type: open-gui
+        gui: myinfo
+
+  # Rendimiento (admin)
+  performance:
+    slot: 20
+    material: REDSTONE
+    name: "&#FF5555&lRendimiento"
+    permission: serverinfo.gui.admin
+    lore:
+      - ""
+      - "&#AAAAAAAnalisis de rendimiento"
+      - "&#AAAAAAy plugins del servidor"
+      - ""
+      - "&#FF5555⚠ &#555555Solo administradores"
+      - ""
+      - "&#55FF55Click para abrir"
+    actions:
+      left-click:
+        type: open-gui
+        gui: performance
+
+  # Refrescar
+  refresh:
+    slot: 22
+    material: LIME_DYE
+    name: "&#55FF55&lRefrescar"
+    lore:
+      - ""
+      - "&#AAAAAAActualizar datos"
+      - ""
+      - "&#55FF55Click para refrescar"
+    actions:
+      left-click:
+        type: refresh
+
+  # Cerrar
+  close:
+    slot: 24
+    material: BARRIER
+    name: "&#FF5555&lCerrar"
+    lore:
+      - ""
+      - "&#AAAAAACerrar este menu"
+    actions:
+      left-click:
+        type: close
+
+  # Decoracion con vidrio gradiente
+  decoration_top:
+    slots: [0, 1, 2, 3, 5, 6, 7, 8]
+    material: CYAN_STAINED_GLASS_PANE
+    name: " "
+
+  decoration_sides:
+    slots: [9, 17]
+    material: LIGHT_BLUE_STAINED_GLASS_PANE
+    name: " "
+
+  decoration_bottom:
+    slots: [18, 19, 21, 23, 25, 26]
+    material: BLUE_STAINED_GLASS_PANE
+    name: " "

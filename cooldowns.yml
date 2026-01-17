@@ -1,0 +1,46 @@
+# ========================================
+# CONFIGURACIÓN DE COOLDOWNS
+# ========================================
+
+# Tiempos en segundos por defecto si no se especifican en webhooks.yml
+
+performance:
+  tps-warning: 300
+  tps-critical: 180
+  tps-emergency: 60
+  memory-warning: 600
+  memory-critical: 300
+  cpu-warning: 600
+  cpu-critical: 300
+  entity-overload: 900
+
+redstone:
+  redstone-lag: 900
+  hopper-overload: 1800
+  farm-detected: 3600
+
+players:
+  player-join: 0
+  player-leave: 0
+  player-first-join: 60
+  player-death: 30
+  player-banned: 0
+  player-kicked: 0
+
+server:
+  server-start: 0
+  server-stop: 0
+  server-crash: 0
+  restart-warning: 0
+
+security:
+  suspicious-connection: 300
+  admin-command: 60
+  op-granted: 0
+  op-removed: 0
+  whitelist-changed: 0
+
+reports:
+  daily-report: 0
+  weekly-report: 0
+  custom-report: 300

@@ -1,0 +1,189 @@
+# Configuracion del GUI de Rendimiento - ServerInfoPlus v2.1
+# Analisis de rendimiento (solo administradores)
+
+title: "&#FF5555&lRendimiento &#555555- &#FFFFFFAnalisis"
+size: 54
+update-interval: 40
+sound-open: BLOCK_CHEST_OPEN
+sound-click: UI_BUTTON_CLICK
+
+items:
+  # Header
+  header:
+    slot: 4
+    material: REDSTONE
+    glow: true
+    name: "&#FF5555&lAnalisis de Rendimiento"
+    lore:
+      - ""
+      - "&#AAAAAAPanel de administracion"
+      - "&#AAAAAAcon metricas avanzadas"
+      - ""
+      - "&#555555Solo administradores"
+
+  # TPS detallado
+  tps_detailed:
+    slot: 10
+    material: CLOCK
+    name: "&#55FF55&lTPS Detallado"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFF1 min: %serverinfo_tps_colored%"
+      - "&#55FFFF► &#FFFFFF5 min: &#55FF55%serverinfo_tps_5m%"
+      - "&#55FFFF► &#FFFFFF15 min: &#55FF55%serverinfo_tps_15m%"
+      - ""
+      - "&#AAAAAA━━ Historial ━━"
+      - "&#55FFFF► &#FFFFFFProm 1h: &#55FF55%serverinfo_history_tps_avg_1h%"
+      - "&#55FFFF► &#FFFFFFMin 24h: &#FF5555%serverinfo_history_tps_min_24h%"
+
+  # CPU detallado
+  cpu_detailed:
+    slot: 11
+    material: REDSTONE_BLOCK
+    name: "&#FF5555&lCPU Detallado"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFUso actual: %serverinfo_cpu_colored%&#AAAAAA%"
+      - "&#55FFFF► &#FFFFFFNucleos: &#55FFFF%serverinfo_cores%"
+      - ""
+      - "&#AAAAAA━━ Historial ━━"
+      - "&#55FFFF► &#FFFFFFMax 1h: &#FF5555%serverinfo_history_cpu_max_1h%&#AAAAAA%"
+
+  # Memoria detallada
+  memory_detailed:
+    slot: 12
+    material: PAPER
+    name: "&#FFAA00&lMemoria Detallada"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFUsada: &#FF5555%serverinfo_memory_used% MB"
+      - "&#55FFFF► &#FFFFFFMax: &#55FF55%serverinfo_memory_max% MB"
+      - "&#55FFFF► &#FFFFFFLibre: &#55FFFF%serverinfo_memory_free% MB"
+      - ""
+      - "&#AAAAAA%serverinfo_memory_bar%"
+      - ""
+      - "&#AAAAAA━━ Historial ━━"
+      - "&#55FFFF► &#FFFFFFMax 24h: &#FF5555%serverinfo_history_memory_max_24h%&#AAAAAA%"
+
+  # Top plugin CPU
+  top_cpu:
+    slot: 19
+    material: REDSTONE_TORCH
+    name: "&#FF5555&lTop Plugin CPU"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFF%serverinfo_plugin_top_cpu%"
+      - "&#55FFFF► &#FFFFFFUso: &#FF5555%serverinfo_plugin_top_cpu_usage%"
+      - ""
+      - "&#AAAAAAPlugin con mayor uso de CPU"
+
+  # Top plugin memoria
+  top_memory:
+    slot: 20
+    material: CHEST
+    name: "&#FFAA00&lTop Plugin Memoria"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFF%serverinfo_plugin_top_memory%"
+      - "&#55FFFF► &#FFFFFFTamaño: &#FFAA00%serverinfo_plugin_top_memory_usage%"
+      - ""
+      - "&#AAAAAAPlugin con mayor uso de memoria"
+
+  # Plugins totales
+  plugins_count:
+    slot: 21
+    material: COMMAND_BLOCK
+    name: "&#55FFFF&lPlugins"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFHabilitados: &#55FF55%serverinfo_plugins_count%"
+      - ""
+      - "&#AAAAAAPlugins activos en el servidor"
+
+  # Redstone monitor
+  redstone:
+    slot: 22
+    material: REDSTONE
+    name: "&#FF4444&lMonitor Redstone"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFNivel: %serverinfo_redstone_lag_level%"
+      - "&#55FFFF► &#FFFFFFEventos/s: &#FFAA00%serverinfo_redstone_events_per_second%"
+      - "&#55FFFF► &#FFFFFFHotspots: &#FF5555%serverinfo_redstone_lag_hotspots%"
+      - ""
+      - "&#55FFFF► &#FFFFFFTop: &#AAAAAA%serverinfo_redstone_top_location%"
+
+  # Alertas recientes
+  alerts:
+    slot: 23
+    material: BELL
+    name: "&#FFAA00&lAlertas"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFUltimas 24h: &#FF5555%serverinfo_history_alerts_count_24h%"
+      - ""
+      - "&#AAAAAA━━ Ultima alerta ━━"
+      - "&#AAAAAA%serverinfo_history_alerts_last%"
+
+  # Uptime
+  uptime:
+    slot: 24
+    material: CLOCK
+    glow: true
+    name: "&#FFD700&lUptime"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFTiempo activo:"
+      - "&#55FF55%serverinfo_uptime%"
+
+  # Volver
+  back:
+    slot: 48
+    material: ARROW
+    name: "&#FFAA00&lVolver"
+    actions:
+      left-click:
+        type: open-gui
+        gui: main
+
+  # Refrescar
+  refresh:
+    slot: 49
+    material: LIME_DYE
+    name: "&#55FF55&lRefrescar"
+    actions:
+      left-click:
+        type: refresh
+
+  # Cerrar
+  close:
+    slot: 50
+    material: BARRIER
+    name: "&#FF5555&lCerrar"
+    actions:
+      left-click:
+        type: close
+
+  # Decoracion superior
+  decoration_top:
+    slots: [0, 1, 2, 3, 5, 6, 7, 8]
+    material: RED_STAINED_GLASS_PANE
+    name: " "
+
+  # Decoracion laterales
+  decoration_sides:
+    slots: [9, 17, 18, 26, 27, 35, 36, 44]
+    material: ORANGE_STAINED_GLASS_PANE
+    name: " "
+
+  # Decoracion inferior
+  decoration_bottom:
+    slots: [45, 46, 47, 51, 52, 53]
+    material: YELLOW_STAINED_GLASS_PANE
+    name: " "
+
+  # Separadores
+  separator:
+    slots: [13, 14, 15, 16, 25, 28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 43]
+    material: GRAY_STAINED_GLASS_PANE
+    name: " "

@@ -1,0 +1,391 @@
+# ========================================
+# TEMPLATES DE MENSAJES PARA DISCORD
+# ========================================
+
+# Variables disponibles:
+# %server% - Nombre del servidor
+# %player% - Nombre del jugador
+# %tps% - TPS actual
+# %memory_used% - Memoria usada
+# %memory_max% - Memoria máxima
+# %memory_percent% - Porcentaje de memoria
+# %cpu% - Uso de CPU
+# %entities% - Entidades totales
+# %chunks% - Chunks cargados
+# %players% - Jugadores online
+# %world% - Nombre del mundo
+# %x% %y% %z% - Coordenadas
+# ... y más (todos los placeholders de ServerInfoPlus)
+
+# ALERTAS DE RENDIMIENTO
+
+performance-warning:
+  title: "⚠️ Advertencia: TPS Bajo"
+  description: "El servidor está experimentando lag moderado"
+  color: "#FFFF00"  # Amarillo
+  fields:
+    - name: "📊 TPS Actual"
+      value: "%serverinfo_tps% / 20.0"
+      inline: true
+    - name: "⏱️ Duración"
+      value: "%duration%"
+      inline: true
+    - name: "👥 Jugadores"
+      value: "%serverinfo_online_players%"
+      inline: true
+    - name: "🔢 Entidades"
+      value: "%serverinfo_total_entities%"
+      inline: true
+    - name: "🌍 Chunks"
+      value: "%serverinfo_total_chunks%"
+      inline: true
+    - name: "💡 Posible Causa"
+      value: "%possible_cause%"
+      inline: false
+
+tps-critical:
+  title: "🚨 ALERTA CRÍTICA: TPS Muy Bajo"
+  description: "**El servidor está experimentando lag severo**"
+  color: "#FF0000"  # Rojo
+  thumbnail: "https://ejemplo.com/alert-icon.png"
+  fields:
+    - name: "📊 TPS Actual"
+      value: "**%serverinfo_tps%** / 20.0"
+      inline: true
+    - name: "⏱️ Duración del Lag"
+      value: "%duration%"
+      inline: true
+    - name: "👥 Jugadores Online"
+      value: "%serverinfo_online_players% / %serverinfo_max_players%"
+      inline: true
+    - name: "🔢 Entidades Cargadas"
+      value: "%serverinfo_total_entities%"
+      inline: true
+    - name: "🌍 Chunks Cargados"
+      value: "%serverinfo_total_chunks%"
+      inline: true
+    - name: "🧠 Memoria RAM"
+      value: "%serverinfo_memory_used%MB / %serverinfo_memory_max%MB (%serverinfo_memory_percent%%)"
+      inline: true
+    - name: "💡 Posible Causa"
+      value: "%possible_cause%"
+      inline: false
+    - name: "🔧 Recomendación"
+      value: "%recommendation%"
+      inline: false
+  footer:
+    text: "%server% • ServerInfoPlus"
+    icon: "%server_icon%"
+
+memory-critical:
+  title: "🚨 ALERTA: Memoria RAM Crítica"
+  description: "El servidor está cerca de quedarse sin memoria"
+  color: "#FF0000"
+  fields:
+    - name: "💾 Memoria Usada"
+      value: "**%serverinfo_memory_used%MB** / %serverinfo_memory_max%MB"
+      inline: true
+    - name: "📊 Porcentaje"
+      value: "**%serverinfo_memory_percent%%**"
+      inline: true
+    - name: "📉 Memoria Libre"
+      value: "%serverinfo_memory_free%MB"
+      inline: true
+    - name: "📈 Tendencia"
+      value: "%memory_trend%"
+      inline: true
+    - name: "🔧 Recomendación"
+      value: "Considera reiniciar el servidor pronto"
+      inline: false
+
+cpu-critical:
+  title: "🚨 ALERTA: CPU Alto"
+  description: "El procesador está sobrecargado"
+  color: "#FFA500"  # Naranja
+  fields:
+    - name: "⚙️ Uso de CPU"
+      value: "**%serverinfo_cpu%%**"
+      inline: true
+    - name: "🔢 Núcleos"
+      value: "%serverinfo_cores%"
+      inline: true
+    - name: "⏱️ Duración"
+      value: "%duration%"
+      inline: true
+
+entity-overload:
+  title: "⚠️ Sobrecarga de Entidades"
+  description: "Hay demasiadas entidades cargadas"
+  color: "#FFFF00"
+  fields:
+    - name: "🔢 Total de Entidades"
+      value: "**%serverinfo_total_entities%**"
+      inline: true
+    - name: "🌍 Mundo con Más"
+      value: "%top_world%: %top_world_entities%"
+      inline: true
+    - name: "📊 Por Tipo"
+      value: "%entity_breakdown%"
+      inline: false
+    - name: "💡 Sugerencia"
+      value: "Considera usar /kill @e[type=item] o limpiar farms"
+      inline: false
+
+# EVENTOS DE JUGADORES
+
+player-join:
+  title: "➕ Jugador Conectado"
+  description: "**%player_name%** se ha unido al servidor"
+  color: "#00FF00"  # Verde
+  thumbnail: "https://crafatar.com/avatars/%player_uuid%?overlay"
+  fields:
+    - name: "🌍 Mundo"
+      value: "%player_world%"
+      inline: true
+    - name: "👥 Jugadores Online"
+      value: "%serverinfo_online_players% / %serverinfo_max_players%"
+      inline: true
+
+player-leave:
+  title: "➖ Jugador Desconectado"
+  description: "**%player_name%** ha salido del servidor"
+  color: "#FF0000"
+  thumbnail: "https://crafatar.com/avatars/%player_uuid%?overlay"
+  fields:
+    - name: "⏱️ Tiempo Jugado"
+      value: "%session_time%"
+      inline: true
+    - name: "👥 Jugadores Online"
+      value: "%serverinfo_online_players% / %serverinfo_max_players%"
+      inline: true
+
+player-first-join:
+  title: "🎉 ¡Nuevo Jugador!"
+  description: "**%player_name%** se ha unido por primera vez"
+  color: "#9B59B6"  # Morado
+  thumbnail: "https://crafatar.com/avatars/%player_uuid%?overlay"
+  fields:
+    - name: "👋 Bienvenida"
+      value: "¡Démosle la bienvenida a %player_name%!"
+      inline: false
+    - name: "👥 Jugador #"
+      value: "%serverinfo_unique_players%"
+      inline: true
+
+player-death:
+  title: "💀 Muerte de Jugador"
+  description: "%death_message%"
+  color: "#8B0000"  # Rojo oscuro
+  thumbnail: "https://crafatar.com/avatars/%player_uuid%?overlay"
+  fields:
+    - name: "📍 Ubicación"
+      value: "%player_world% (%player_x%, %player_y%, %player_z%)"
+      inline: false
+
+player-banned:
+  title: "🔨 Jugador Baneado"
+  description: "**%player_name%** ha sido baneado del servidor"
+  color: "#FF0000"
+  fields:
+    - name: "👮 Moderador"
+      value: "%moderator%"
+      inline: true
+    - name: "📝 Razón"
+      value: "%reason%"
+      inline: false
+    - name: "⏱️ Duración"
+      value: "%duration%"
+      inline: true
+
+# EVENTOS DEL SERVIDOR
+
+server-start:
+  title: "✅ Servidor Iniciado"
+  description: "**%server%** está ahora en línea"
+  color: "#00FF00"
+  thumbnail: "%server_icon%"
+  fields:
+    - name: "⏱️ Tiempo de Inicio"
+      value: "%startup_time%"
+      inline: true
+    - name: "🔌 Plugins Cargados"
+      value: "%serverinfo_plugin_count%"
+      inline: true
+    - name: "🌍 Mundos Cargados"
+      value: "%serverinfo_world_count%"
+      inline: true
+    - name: "📦 Versión"
+      value: "%serverinfo_version%"
+      inline: true
+
+server-stop:
+  title: "🛑 Servidor Detenido"
+  description: "**%server%** se ha apagado"
+  color: "#FF0000"
+  fields:
+    - name: "⏱️ Uptime"
+      value: "%serverinfo_uptime%"
+      inline: true
+    - name: "📊 Estadísticas"
+      value: "Jugadores únicos: %serverinfo_unique_players%\nTPS promedio: %serverinfo_tps%"
+      inline: false
+
+server-crash:
+  title: "💥 SERVIDOR CAÍDO"
+  description: "**El servidor ha crasheado inesperadamente**"
+  color: "#8B0000"
+  fields:
+    - name: "❌ Error"
+      value: "%crash_reason%"
+      inline: false
+    - name: "🔌 Plugin Involucrado"
+      value: "%crash_plugin%"
+      inline: true
+    - name: "⏱️ Uptime Antes del Crash"
+      value: "%serverinfo_uptime%"
+      inline: true
+
+restart-warning:
+  title: "⚠️ Reinicio Programado"
+  description: "El servidor se reiniciará en **%time_remaining%**"
+  color: "#FFA500"
+  fields:
+    - name: "⏱️ Tiempo Restante"
+      value: "**%time_remaining%**"
+      inline: true
+    - name: "👥 Jugadores Afectados"
+      value: "%serverinfo_online_players%"
+      inline: true
+
+# ALERTAS DE REDSTONE
+
+redstone-lag:
+  title: "⚡ Lag por Redstone Detectado"
+  description: "Se detectó un circuito de redstone pesado"
+  color: "#FF4500"
+  fields:
+    - name: "📍 Ubicación"
+      value: "%world% (%x%, %y%, %z%)"
+      inline: false
+    - name: "🔧 Bloques Detectados"
+      value: "%block_types%"
+      inline: true
+    - name: "📊 Impacto en TPS"
+      value: "TPS bajó de %tps_before% a %tps_after%"
+      inline: false
+    - name: "👤 Jugador Cercano"
+      value: "%nearby_player%"
+      inline: true
+
+hopper-overload:
+  title: "📦 Sobrecarga de Hoppers"
+  description: "Concentración excesiva de hoppers detectada"
+  color: "#FFA500"
+  fields:
+    - name: "🔢 Cantidad"
+      value: "%hopper_count% hoppers"
+      inline: true
+    - name: "📍 Ubicación"
+      value: "%world% (%x%, %y%, %z%)"
+      inline: false
+    - name: "💡 Sugerencia"
+      value: "Considera optimizar este sistema o usar alternatives"
+      inline: false
+
+# REPORTES
+
+daily-report:
+  title: "📊 Reporte Diario"
+  description: "Resumen de actividad del último día"
+  color: "#0099FF"
+  thumbnail: "%server_icon%"
+  fields:
+    - name: "👥 Jugadores Únicos"
+      value: "%serverinfo_unique_players%"
+      inline: true
+    - name: "📈 Pico de Jugadores"
+      value: "%peak_players%"
+      inline: true
+    - name: "⏱️ Uptime"
+      value: "%uptime_percentage%%"
+      inline: true
+    - name: "📊 TPS Promedio"
+      value: "%average_tps%"
+      inline: true
+    - name: "💾 Memoria Promedio"
+      value: "%average_memory%%"
+      inline: true
+    - name: "🏆 Top Jugadores"
+      value: "%top_players%"
+      inline: false
+
+weekly-report:
+  title: "📊 Reporte Semanal"
+  description: "Resumen de actividad de la semana"
+  color: "#0099FF"
+  thumbnail: "%server_icon%"
+  fields:
+    - name: "👥 Jugadores Únicos"
+      value: "%serverinfo_unique_players%"
+      inline: true
+    - name: "📈 Crecimiento"
+      value: "%growth%% vs semana anterior"
+      inline: true
+    - name: "⏱️ Tiempo Total de Juego"
+      value: "%total_playtime%"
+      inline: true
+    - name: "📊 Rendimiento"
+      value: "TPS: %average_tps%\nMemoria: %average_memory%%"
+      inline: true
+    - name: "🏆 Jugadores Más Activos"
+      value: "%top_players%"
+      inline: false
+    - name: "📈 Estadísticas"
+      value: "Joins: %total_joins%\nPrimeros ingresos: %first_joins%"
+      inline: false
+
+# SEGURIDAD
+
+suspicious-connection:
+  title: "🔒 Conexión Sospechosa"
+  description: "Intento de conexión sospechoso detectado"
+  color: "#FF0000"
+  fields:
+    - name: "🌐 IP"
+      value: "`%ip%`"
+      inline: true
+    - name: "❌ Razón"
+      value: "%reason%"
+      inline: false
+
+admin-command:
+  title: "⚙️ Comando Administrativo"
+  description: "Se ejecutó un comando administrativo"
+  color: "#FFA500"
+  fields:
+    - name: "👤 Ejecutor"
+      value: "%executor%"
+      inline: true
+    - name: "📝 Comando"
+      value: "`%command%`"
+      inline: false
+
+op-granted:
+  title: "👑 OP Otorgado"
+  description: "Se otorgaron permisos de operador"
+  color: "#FFD700"  # Dorado
+  fields:
+    - name: "👤 Jugador"
+      value: "%player%"
+      inline: true
+    - name: "👮 Otorgado Por"
+      value: "%granter%"
+      inline: true
+
+# MENSAJES PERSONALIZADOS
+
+custom-message:
+  title: "%custom_title%"
+  description: "%custom_description%"
+  color: "%custom_color%"
+  fields: []

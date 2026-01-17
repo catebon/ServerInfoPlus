@@ -1,0 +1,196 @@
+# Configuracion del GUI de Estadisticas - ServerInfoPlus v2.1
+# Metricas detalladas del servidor con colores hex
+
+title: "&#55FFFF&lEstadisticas &#555555- &#FFFFFFServerInfo"
+size: 54
+update-interval: 20
+sound-open: BLOCK_CHEST_OPEN
+sound-click: UI_BUTTON_CLICK
+
+items:
+  # TPS del servidor
+  tps:
+    slot: 10
+    material: CLOCK
+    glow: true
+    name: "&#55FF55&lTPS"
+    lore:
+      - ""
+      - "&#AAAAAA━━━━━━━━━━━━━━━━━━━━━"
+      - "&#55FFFF► &#FFFFFF1 min: %serverinfo_tps_colored%"
+      - "&#55FFFF► &#FFFFFF5 min: &#55FF55%serverinfo_tps_5m%"
+      - "&#55FFFF► &#FFFFFF15 min: &#55FF55%serverinfo_tps_15m%"
+      - ""
+      - "&#AAAAAA• &#55FF5520.0 &#AAAAAA= Perfecto"
+      - "&#AAAAAA• &#FFAA0018-19 &#AAAAAA= Normal"
+      - "&#AAAAAA• &#FF5555<15 &#AAAAAA= Problemas"
+
+  # Memoria RAM
+  memory:
+    slot: 11
+    material: PAPER
+    name: "&#FFAA00&lMemoria RAM"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFUsada: &#FF5555%serverinfo_memory_used% &#AAAAAOMB"
+      - "&#55FFFF► &#FFFFFFMaxima: &#55FF55%serverinfo_memory_max% &#AAAAAOMB"
+      - "&#55FFFF► &#FFFFFFLibre: &#55FFFF%serverinfo_memory_free% &#AAAAAOMB"
+      - ""
+      - "&#AAAAAA%serverinfo_memory_bar%"
+
+  # CPU
+  cpu:
+    slot: 12
+    material: REDSTONE
+    name: "&#FF5555&lCPU"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFUso actual: %serverinfo_cpu_colored%&#AAAAAA%"
+      - "&#55FFFF► &#FFFFFFNucleos: &#55FFFF%serverinfo_cores%"
+      - ""
+      - "&#AAAAAAMonitoreo de procesador"
+
+  # Sistema operativo
+  os:
+    slot: 13
+    material: COMMAND_BLOCK
+    name: "&#55FFFF&lSistema"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFOS: &#55FFFF%serverinfo_os%"
+      - "&#55FFFF► &#FFFFFFVersion: &#AAAAAA%serverinfo_os_version%"
+      - "&#55FFFF► &#FFFFFFArq: &#AAAAAA%serverinfo_os_arch%"
+
+  # Java
+  java:
+    slot: 14
+    material: BOOK
+    name: "&#FFAA00&lJava"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFVersion: &#FFAA00%serverinfo_java_version%"
+      - ""
+      - "&#AAAAAAVersion de Java instalada"
+
+  # Jugadores online
+  players:
+    slot: 19
+    material: PLAYER_HEAD
+    name: "&#55FF55&lJugadores"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFOnline: &#55FF55%serverinfo_players_online%&#AAAAAA/&#555555%serverinfo_players_max%"
+      - "&#55FFFF► &#FFFFFFPorcentaje: &#FFAA00%serverinfo_players_percent%&#AAAAAA%"
+
+  # Entidades
+  entities:
+    slot: 20
+    material: ZOMBIE_HEAD
+    name: "&#FF6B6B&lEntidades"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFTotal: &#FFAA00%serverinfo_entities%"
+      - ""
+      - "&#AAAAAAEntidades cargadas en"
+      - "&#AAAAAAtodos los mundos"
+
+  # Chunks
+  chunks:
+    slot: 21
+    material: GRASS_BLOCK
+    name: "&#00AA00&lChunks"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFCargados: &#55FFFF%serverinfo_chunks%"
+      - ""
+      - "&#AAAAAAChunks activos en memoria"
+
+  # Mundos
+  worlds:
+    slot: 22
+    material: COMPASS
+    name: "&#00D4FF&lMundos"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFTotal: &#55FFFF%serverinfo_worlds%"
+      - ""
+      - "&#55FF55Click para ver detalles"
+    actions:
+      left-click:
+        type: open-gui
+        gui: worlds
+
+  # Uptime
+  uptime:
+    slot: 23
+    material: CLOCK
+    glow: true
+    name: "&#FFD700&lUptime"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFTiempo activo:"
+      - "&#55FF55%serverinfo_uptime%"
+      - ""
+      - "&#AAAAAADesde el ultimo reinicio"
+
+  # Hora actual
+  time:
+    slot: 24
+    material: SUNFLOWER
+    name: "&#FFAA00&lFecha y Hora"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFHora: &#FFFFFF%serverinfo_time%"
+      - "&#55FFFF► &#FFFFFFFecha: &#AAAAAA%serverinfo_date%"
+
+  # Refrescar
+  refresh:
+    slot: 49
+    material: LIME_DYE
+    name: "&#55FF55&lRefrescar"
+    actions:
+      left-click:
+        type: refresh
+
+  # Volver
+  back:
+    slot: 48
+    material: ARROW
+    name: "&#FFAA00&lVolver"
+    actions:
+      left-click:
+        type: open-gui
+        gui: main
+
+  # Cerrar
+  close:
+    slot: 50
+    material: BARRIER
+    name: "&#FF5555&lCerrar"
+    actions:
+      left-click:
+        type: close
+
+  # Decoracion superior
+  decoration_top:
+    slots: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    material: CYAN_STAINED_GLASS_PANE
+    name: " "
+
+  # Decoracion laterales
+  decoration_sides:
+    slots: [9, 17, 18, 26, 27, 35, 36, 44]
+    material: LIGHT_BLUE_STAINED_GLASS_PANE
+    name: " "
+
+  # Decoracion inferior
+  decoration_bottom:
+    slots: [45, 46, 47, 51, 52, 53]
+    material: BLUE_STAINED_GLASS_PANE
+    name: " "
+
+  # Separadores
+  separator:
+    slots: [15, 16, 25, 28, 29, 30, 31, 32, 33, 34, 37, 38, 39, 40, 41, 42, 43]
+    material: GRAY_STAINED_GLASS_PANE
+    name: " "

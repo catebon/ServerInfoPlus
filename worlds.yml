@@ -1,0 +1,97 @@
+# Configuracion del GUI de Mundos - ServerInfoPlus v2.1
+# Lista de mundos con jugadores conectados
+
+title: "&#00D4FF&lMundos &#555555- &#FFFFFFJugadores"
+size: 54
+update-interval: 20
+sound-open: BLOCK_CHEST_OPEN
+sound-click: UI_BUTTON_CLICK
+
+# Los items de mundos se generan dinamicamente en el codigo Java
+# Esta configuracion define el estilo y navegacion
+
+items:
+  # Info del header
+  header:
+    slot: 4
+    material: COMPASS
+    glow: true
+    name: "&#00D4FF&lMundos del Servidor"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFMundos activos: &#55FF55%serverinfo_worlds%"
+      - "&#55FFFF► &#FFFFFFJugadores online: &#55FF55%serverinfo_players_online%"
+      - ""
+      - "&#AAAAAASelecciona un mundo para"
+      - "&#AAAAAAver detalles"
+
+  # Volver
+  back:
+    slot: 48
+    material: ARROW
+    name: "&#FFAA00&lVolver"
+    lore:
+      - ""
+      - "&#AAAAAAVolver al menu principal"
+    actions:
+      left-click:
+        type: open-gui
+        gui: main
+
+  # Refrescar
+  refresh:
+    slot: 49
+    material: LIME_DYE
+    name: "&#55FF55&lRefrescar"
+    lore:
+      - ""
+      - "&#AAAAAAActualizar lista"
+    actions:
+      left-click:
+        type: refresh
+
+  # Cerrar
+  close:
+    slot: 50
+    material: BARRIER
+    name: "&#FF5555&lCerrar"
+    actions:
+      left-click:
+        type: close
+
+  # Decoracion superior
+  decoration_top:
+    slots: [0, 1, 2, 3, 5, 6, 7, 8]
+    material: CYAN_STAINED_GLASS_PANE
+    name: " "
+
+  # Decoracion laterales
+  decoration_sides:
+    slots: [9, 17, 18, 26, 27, 35, 36, 44]
+    material: LIGHT_BLUE_STAINED_GLASS_PANE
+    name: " "
+
+  # Decoracion inferior
+  decoration_bottom:
+    slots: [45, 46, 47, 51, 52, 53]
+    material: BLUE_STAINED_GLASS_PANE
+    name: " "
+
+# Template para items de mundo generados dinamicamente
+world-item-template:
+  material: GRASS_BLOCK
+  name: "&#55FF55&l%world_display_name%"
+  lore:
+    - ""
+    - "&#55FFFF► &#FFFFFFJugadores: &#55FF55%world_players_count%"
+    - "&#55FFFF► &#FFFFFFEntidades: &#FFAA00%world_entities%"
+    - "&#55FFFF► &#FFFFFFChunks: &#55FFFF%world_chunks%"
+    - ""
+    - "&#55FF55Click para ver detalles"
+
+# Materiales especiales para tipos de mundo
+world-materials:
+  world: GRASS_BLOCK
+  world_nether: NETHERRACK
+  world_the_end: END_STONE
+  default: STONE

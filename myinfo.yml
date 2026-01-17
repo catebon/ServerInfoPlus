@@ -1,0 +1,167 @@
+# Configuracion del GUI de Mi Informacion - ServerInfoPlus v2.1
+# Informacion personal del jugador
+
+title: "&#FF6B6B&lMi Informacion"
+size: 45
+update-interval: 20
+sound-open: BLOCK_CHEST_OPEN
+sound-click: UI_BUTTON_CLICK
+
+items:
+  # Cabeza del jugador con info principal
+  player_head:
+    slot: 4
+    material: PLAYER_HEAD
+    skull-owner: "%player_name%"
+    name: "&#FFD700&l%player_name%"
+    lore:
+      - ""
+      - "&#AAAAAA━━━━━━━━━━━━━━━━━━━━━"
+      - "&#55FFFF✦ &#FFFFFFInformacion de Conexion"
+      - ""
+      - "  &#AAAAAA► &#FFFFFFPing: &#55FF55%serverinfo_ping%&#AAAAAAms"
+      - "  &#AAAAAA► &#FFFFFFMundo: &#55FFFF%serverinfo_world_name%"
+      - "  &#AAAAAA► &#FFFFFFBioma: &#55FF55%serverinfo_biome%"
+      - ""
+      - "&#555555Actualizado en tiempo real"
+
+  # Ping detallado
+  ping:
+    slot: 19
+    material: ENDER_PEARL
+    name: "&#00D4FF&lPing"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFPing actual: %serverinfo_ping_colored%&#AAAAAAms"
+      - ""
+      - "&#AAAAAA• &#55FF550-80ms &#AAAAAA= Excelente"
+      - "&#AAAAAA• &#FFAA0080-150ms &#AAAAAA= Normal"
+      - "&#AAAAAA• &#FF5555+150ms &#AAAAAA= Alto"
+
+  # Ubicacion del jugador
+  location:
+    slot: 20
+    material: COMPASS
+    name: "&#55FF55&lUbicacion"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFX: &#55FFFF%serverinfo_x%"
+      - "&#55FFFF► &#FFFFFFY: &#55FFFF%serverinfo_y%"
+      - "&#55FFFF► &#FFFFFFZ: &#55FFFF%serverinfo_z%"
+      - ""
+      - "&#55FFFF► &#FFFFFFMundo: &#55FFFF%serverinfo_world_name%"
+
+  # Bioma actual
+  biome:
+    slot: 21
+    material: GRASS_BLOCK
+    name: "&#00AA00&lBioma"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFBioma: &#55FF55%serverinfo_biome%"
+      - ""
+      - "&#AAAAAABioma en tu ubicacion actual"
+
+  # Entidades en el mundo
+  world_entities:
+    slot: 22
+    material: ZOMBIE_HEAD
+    name: "&#FFAA00&lEntidades"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFEn tu mundo: &#FFAA00%serverinfo_entities_world%"
+      - "&#55FFFF► &#FFFFFFTotal servidor: &#FFAA00%serverinfo_entities%"
+
+  # Chunks cargados
+  chunks:
+    slot: 23
+    material: FILLED_MAP
+    name: "&#55FFFF&lChunks"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFEn tu mundo: &#55FFFF%serverinfo_chunks_world%"
+      - "&#55FFFF► &#FFFFFFTotal servidor: &#55FFFF%serverinfo_chunks%"
+
+  # Tiempo del servidor
+  time:
+    slot: 24
+    material: CLOCK
+    name: "&#FFD700&lTiempo"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFHora: &#FFAA00%serverinfo_time%"
+      - "&#55FFFF► &#FFFFFFFecha: &#AAAAAA%serverinfo_date%"
+      - ""
+      - "&#55FFFF► &#FFFFFFUptime: &#55FF55%serverinfo_uptime%"
+
+  # Jugadores en el mundo
+  world_players:
+    slot: 25
+    material: PLAYER_HEAD
+    name: "&#FF6B6B&lJugadores en tu Mundo"
+    lore:
+      - ""
+      - "&#55FFFF► &#FFFFFFJugadores: &#55FF55%serverinfo_world_players%"
+      - ""
+      - "&#AAAAAAJugadores en %serverinfo_world_name%"
+
+  # Volver
+  back:
+    slot: 36
+    material: ARROW
+    name: "&#FFAA00&lVolver"
+    lore:
+      - ""
+      - "&#AAAAAAVolver al menu principal"
+    actions:
+      left-click:
+        type: open-gui
+        gui: main
+
+  # Refrescar
+  refresh:
+    slot: 40
+    material: LIME_DYE
+    name: "&#55FF55&lRefrescar"
+    lore:
+      - ""
+      - "&#AAAAAAActualizar informacion"
+    actions:
+      left-click:
+        type: refresh
+
+  # Cerrar
+  close:
+    slot: 44
+    material: BARRIER
+    name: "&#FF5555&lCerrar"
+    lore:
+      - ""
+      - "&#AAAAAACerrar menu"
+    actions:
+      left-click:
+        type: close
+
+  # Decoracion superior
+  decoration_top:
+    slots: [0, 1, 2, 3, 5, 6, 7, 8]
+    material: MAGENTA_STAINED_GLASS_PANE
+    name: " "
+
+  # Decoracion laterales
+  decoration_sides:
+    slots: [9, 17, 18, 26, 27, 35]
+    material: PINK_STAINED_GLASS_PANE
+    name: " "
+
+  # Decoracion inferior
+  decoration_bottom:
+    slots: [37, 38, 39, 41, 42, 43]
+    material: RED_STAINED_GLASS_PANE
+    name: " "
+
+  # Separador
+  separator:
+    slots: [10, 11, 12, 13, 14, 15, 16]
+    material: GRAY_STAINED_GLASS_PANE
+    name: " "
